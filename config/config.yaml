@@ -1,0 +1,28 @@
+data:
+  path: "data/raw/network_traffic.csv"
+  train_ratio: 0.7
+  test_ratio: 0.3
+  window_size: 1000 
+  features_to_monitor: ["duration", "protocol_type", "service", "flag", "src_bytes", "dst_bytes"]
+
+model:
+  algorithm: "random_forest"
+  random_state: 42
+  test_size: 0.2
+  parameters:
+    n_estimators: 100
+    max_depth: 10
+
+drift:
+  detection_methods: ["KS", "PSI"]
+  ks_threshold: 0.05
+  psi_thresholds:
+    stable: 0.1
+    moderate: 0.25
+    high: 0.5
+  significance_level: 0.05
+  monitoring_frequency: 24  
+
+evaluation:
+  metrics: ["accuracy", "precision", "recall", "f1", "roc_auc"]
+  performance_threshold: 0.85 

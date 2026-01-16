@@ -1,0 +1,23 @@
+{
+  "ks_test": {
+    "critical": 0.1,
+    "warning": 0.05,
+    "info": 0.01
+  },
+  "psi": {
+    "no_drift": 0.1,
+    "moderate_drift": 0.25,
+    "high_drift": 0.5
+  },
+  "performance": {
+    "accuracy_drop_critical": 0.15,
+    "accuracy_drop_warning": 0.05,
+    "f1_drop_critical": 0.2,
+    "f1_drop_warning": 0.1
+  },
+  "alerting": {
+    "consecutive_drift_windows": 3,
+    "performance_decline_windows": 5,
+    "max_retraining_interval": 50
+  }
+}

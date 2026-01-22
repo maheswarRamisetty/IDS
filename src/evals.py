@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, confusion_matrix
 from scipy import stats
+import maptlotlib.pyplot as plt
 
 class ModelEvaluator:
     def __init__(self, config):

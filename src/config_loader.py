@@ -26,6 +26,7 @@ class ConfigLoader:
     def load_drift_thresholds(self, thresholds_path="../config/drift_thresholds.json"):
         with open(thresholds_path, 'r') as file:
             return json.load(file)
+        
     
     def get_path(self, path_key):
         paths = {

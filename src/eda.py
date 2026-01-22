@@ -82,6 +82,7 @@ class DataCleaner:
     def _describe(self):
         self._get_dims()
         self._delete_fs()
+        print("Pre Process")
         self._preprocess_columns()
         self._dbg(self._data.describe().transpose())
 

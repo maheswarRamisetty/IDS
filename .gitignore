@@ -1,2 +1,6 @@
 data/
 *.csv
+*.json
+**/.env
+src/check_hf.py
+notebooks/util_summary.ipynb

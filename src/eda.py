@@ -53,6 +53,13 @@ class DataCleaner:
             print(full_df.head())
 
 
+    
+    def _box(self):
+        plt.figure(figsize = (8, 3))
+        sns.boxplot(x = self._data['Flow Bytes/s'])
+        plt.xlabel('Boxplot of Flow Bytes/s')
+        plt.show()
+
     def _get_dims(self):
         print('Data dimensions: ')
         
@@ -86,7 +93,33 @@ class DataCleaner:
         self._preprocess_columns()
         self._dbg(self._data.describe().transpose())
 
+    def _process(self):
+        self._describe()
+        dups = self._data[self._data.duplicated()]
+        print(len(dups))
+        self._data.drop_duplicates(inplace = True)
+        missing_val = self._data.isna().sum()
+        numeric_cols = self._data.select_dtypes(include = np.number).columns
+        inf_count = np.isinf(self._data[numeric_cols]).sum()
+        self._data.replace([np.inf, -np.inf], np.nan, inplace = True)
+        missing = self._data.isna().sum()
+        mis_per = (missing / len(self._data)) * 100
+        mis_table = pd.concat([missing, mis_per.round(2)], axis = 1)
+        mis_table = mis_table.rename(columns = {0 : 'Missing Values', 1 : 'Percentage of Total Values'})
+        sns.set_palette('pastel')
+        colors = sns.color_palette()
+
+        missing_vals = [col for col in self._data.columns if self._data[col].isna().any()]
+
+        fig, ax = plt.subplots(figsize = (2, 6))
+        msno.bar(self._data[missing_vals], ax = ax, fontsize = 12, color = colors)
+        ax.set_xlabel('Features', fontsize = 12)
+        ax.set_ylabel('Non-Null Value Count', fontsize = 12)
+        ax.set_title('Missing Value Chart', fontsize = 12)
+        plt.show()
+        
 
 if __name__=="__main__":
     dC=DataCleaner("../data/raw")
-    dC._describe()
+    dC._process()
+    dC._box()

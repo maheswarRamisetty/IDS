@@ -1,62 +1,74 @@
-project:
-  name: Data_Drift_IDS
-  version: 1.0.0
-
 data:
-  raw_path: data/raw/
-  processed_path: data/processed/
-  splits_path: data/splits/
-  window_path: data/splits/window_data/
-  train_file: train_data.csv
-  test_file: test_data.csv
-  preprocessed_file: preprocessed_data.csv
-  features_file: feature_engineered.csv
-
+  raw_path: "../data/raw"
+  processed_path: "../data/processed"
+  splits_path: "../data/splits"
+  
+  files: [
+    "Monday-WorkingHours.pcap_ISCX.csv",
+    "Tuesday-WorkingHours.pcap_ISCX.csv",
+    "Wednesday-WorkingHours.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+    "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+    "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+    "Friday-WorkingHours-Morning.pcap_ISCX.csv"
+  ]
+  
+  features:
+    numerical_columns: [
+      "Destination Port", "Flow Duration", "Total Fwd Packets", 
+      "Total Backward Packets", "Total Length of Fwd Packets",
+      "Total Length of Bwd Packets", "Fwd Packet Length Max",
+      "Fwd Packet Length Min", "Fwd Packet Length Mean",
+      "Fwd Packet Length Std", "Flow Bytes/s", "Flow Packets/s",
+      "Flow IAT Mean", "Flow IAT Std", "Flow IAT Max", "Flow IAT Min"
+    ]
+    
+  categorical_columns: [
+    "Fwd PSH Flags", "Bwd PSH Flags", "Fwd URG Flags",
+    "Bwd URG Flags", "FIN Flag Count", "SYN Flag Count",
+    "RST Flag Count", "PSH Flag Count", "ACK Flag Count",
+    "URG Flag Count", "CWE Flag Count", "ECE Flag Count"
+  ]
+  
+  target_column: "Label"
+  
 model:
-  model_path: models/saved_models/
-  initial_model: initial_model.pkl
-  retrained_model: retrained_model.pkl
-  feature_importance_path: models/feature_importance/
-  
-training:
-  test_size: 0.2
-  random_state: 42
-  target_column: Label
+  model_type: "random_forest"
+  test_size: 0.3
   validation_size: 0.1
-  n_estimators: 100
-  max_depth: 10
-  learning_rate: 0.1
-  subsample: 0.8
+  random_state: 42
   
-drift:
-  ks_threshold: 0.05
-  psi_threshold: 0.1
-  window_size: 10000
-  step_size: 5000
-  confidence_level: 0.95
-  min_samples: 1000
+  random_forest:
+    n_estimators: 150
+    max_depth: 25
+    min_samples_split: 5
+    min_samples_leaf: 2
+    n_jobs: -1
+    
+  xgboost:
+    n_estimators: 200
+    max_depth: 12
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    
+drift_detection:
+  window_size: 5000
+  drift_threshold_ks: 0.1
+  drift_threshold_psi: 0.2
+  n_features_drift: 5
+  detection_frequency: 1000
   
-evaluation:
-  metrics: ['accuracy', 'precision', 'recall', 'f1', 'roc_auc']
-  classification_threshold: 0.5
-  use_cross_validation: true
-  cv_folds: 5
+paths:
+  figs_dir: "./figs"
+  logs_dir: "./logs"
+  results_dir: "./results"
+  model_save: "./models/trained/ids_model.joblib"
+  scaler_save: "./models/trained/scaler.joblib"
+  drift_detector_save: "./models/drift_detectors/drift_detector.joblib"
   
 logging:
-  log_path: logs/
-  drift_log: drift_monitoring.log
-  training_log: model_training.log
-  performance_log: performance_tracking.log
-  
-results:
-  plots_path: results/plots/
-  metrics_path: results/metrics/
-  reports_path: results/reports/
-  alerts_path: results/alerts/
-  
-visualization:
-  figsize_width: 12
-  figsize_height: 8
-  dpi: 300
-  style: seaborn
-  color_palette: Set2
+  log_level: "INFO"
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_file: "ids_pipeline.log"

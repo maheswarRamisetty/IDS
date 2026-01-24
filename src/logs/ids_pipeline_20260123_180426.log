@@ -1,0 +1,29 @@
+2026-01-23 18:04:26,870 - utils - INFO - ======================================================================
+2026-01-23 18:04:26,870 - utils - INFO - NETWORK INTRUSION DETECTION SYSTEM WITH DRIFT DETECTION
+2026-01-23 18:04:26,885 - utils - INFO - ======================================================================
+2026-01-23 18:04:26,885 - utils - INFO - Start Time: 2026-01-23 18:04:26
+2026-01-23 18:04:26,885 - utils - INFO - Configuration loaded
+2026-01-23 18:04:26,891 - utils - INFO - Found 8 CSV files in ../data/raw
+2026-01-23 18:04:26,891 - utils - INFO -   - Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+2026-01-23 18:04:26,891 - utils - INFO -   - Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+2026-01-23 18:04:26,891 - utils - INFO -   - Friday-WorkingHours-Morning.pcap_ISCX.csv
+2026-01-23 18:04:26,891 - utils - INFO -   - Monday-WorkingHours.pcap_ISCX.csv
+2026-01-23 18:04:26,891 - utils - INFO -   - Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+2026-01-23 18:04:26,891 - utils - INFO -   - Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+2026-01-23 18:04:26,891 - utils - INFO -   - Tuesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 18:04:26,891 - utils - INFO -   - Wednesday-workingHours.pcap_ISCX.csv
+2026-01-23 18:04:26,891 - utils - INFO - 
+======================================================================
+2026-01-23 18:04:26,891 - utils - INFO - PHASE 1: DATA PREPROCESSING
+2026-01-23 18:04:26,891 - utils - INFO - ======================================================================
+2026-01-23 18:04:26,891 - utils - INFO - Starting data preparation pipeline...
+2026-01-23 18:04:26,891 - utils - INFO - Loading Monday-WorkingHours.pcap_ISCX.csv
+2026-01-23 18:04:30,588 - utils - INFO - Loaded Monday-WorkingHours.pcap_ISCX.csv: (529918, 79)
+2026-01-23 18:04:30,703 - utils - INFO - Loading Tuesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 18:04:33,619 - utils - INFO - Loaded Tuesday-WorkingHours.pcap_ISCX.csv: (445909, 79)
+2026-01-23 18:04:33,713 - utils - INFO - Loading Wednesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 18:04:38,306 - utils - INFO - Loaded Wednesday-WorkingHours.pcap_ISCX.csv: (692703, 79)
+2026-01-23 18:04:38,463 - utils - WARNING - File not found: ../data/raw\TThursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+2026-01-23 18:04:38,463 - utils - INFO - Loading Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+2026-01-23 18:04:39,806 - utils - INFO - Loaded Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv: (170366, 79)
+2026-01-23 18:04:39,838 - utils - INFO - Loading Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv

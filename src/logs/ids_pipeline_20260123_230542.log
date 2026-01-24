@@ -1,0 +1,161 @@
+2026-01-23 23:05:42,190 - utils - INFO - ======================================================================
+2026-01-23 23:05:42,190 - utils - INFO - NETWORK INTRUSION DETECTION SYSTEM WITH DRIFT DETECTION
+2026-01-23 23:05:42,190 - utils - INFO - ======================================================================
+2026-01-23 23:05:42,190 - utils - INFO - Start Time: 2026-01-23 23:05:42
+2026-01-23 23:05:42,190 - utils - INFO - Configuration loaded
+2026-01-23 23:05:42,190 - utils - INFO - Found 8 CSV files in ../data/raw
+2026-01-23 23:05:42,190 - utils - INFO -   - Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+2026-01-23 23:05:42,190 - utils - INFO -   - Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+2026-01-23 23:05:42,190 - utils - INFO -   - Friday-WorkingHours-Morning.pcap_ISCX.csv
+2026-01-23 23:05:42,190 - utils - INFO -   - Monday-WorkingHours.pcap_ISCX.csv
+2026-01-23 23:05:42,190 - utils - INFO -   - Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+2026-01-23 23:05:42,190 - utils - INFO -   - Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+2026-01-23 23:05:42,190 - utils - INFO -   - Tuesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 23:05:42,190 - utils - INFO -   - Wednesday-workingHours.pcap_ISCX.csv
+2026-01-23 23:05:42,190 - utils - INFO - 
+======================================================================
+2026-01-23 23:05:42,190 - utils - INFO - PHASE 1: DATA PREPROCESSING
+2026-01-23 23:05:42,206 - utils - INFO - ======================================================================
+2026-01-23 23:05:42,210 - utils - INFO - Starting data preparation pipeline...
+2026-01-23 23:05:42,210 - utils - INFO - Loading Monday-WorkingHours.pcap_ISCX.csv
+2026-01-23 23:05:45,831 - utils - INFO - Loaded Monday-WorkingHours.pcap_ISCX.csv: (529918, 79)
+2026-01-23 23:05:45,941 - utils - INFO - Loading Tuesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 23:05:48,924 - utils - INFO - Loaded Tuesday-WorkingHours.pcap_ISCX.csv: (445909, 79)
+2026-01-23 23:05:49,023 - utils - INFO - Loading Wednesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 23:05:53,643 - utils - INFO - Loaded Wednesday-WorkingHours.pcap_ISCX.csv: (692703, 79)
+2026-01-23 23:05:53,804 - utils - INFO - Loading Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+2026-01-23 23:05:55,627 - utils - INFO - Loaded Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv: (288602, 79)
+2026-01-23 23:05:55,705 - utils - INFO - Loading Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+2026-01-23 23:05:56,846 - utils - INFO - Loaded Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv: (170366, 79)
+2026-01-23 23:05:56,892 - utils - INFO - Loading Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+2026-01-23 23:05:58,429 - utils - INFO - Loaded Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv: (225745, 79)
+2026-01-23 23:05:58,486 - utils - INFO - Loading Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+2026-01-23 23:06:00,148 - utils - INFO - Loaded Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv: (286467, 79)
+2026-01-23 23:06:00,211 - utils - INFO - Loading Friday-WorkingHours-Morning.pcap_ISCX.csv
+2026-01-23 23:06:01,486 - utils - INFO - Loaded Friday-WorkingHours-Morning.pcap_ISCX.csv: (191033, 79)
+2026-01-23 23:06:02,767 - utils - INFO - Combined data shape: (2830743, 79)
+2026-01-23 23:06:02,867 - utils - INFO - Starting data cleaning...
+2026-01-23 23:06:02,877 - utils - INFO - Original shape: (2830743, 79)
+2026-01-23 23:06:16,313 - utils - INFO - Final shape after cleaning: (2830743, 79)
+2026-01-23 23:06:16,313 - utils - INFO - Removed 0 rows
+2026-01-23 23:06:16,398 - utils - INFO - Encoding target variable...
+2026-01-23 23:06:20,609 - utils - INFO - Unique labels found: ['BENIGN' 'FTP-Patator' 'SSH-Patator' 'DoS slowloris' 'DoS Slowhttptest'
+ 'DoS Hulk' 'DoS GoldenEye' 'Heartbleed' 'Infiltration'
+ 'Web Attack  Brute Force' 'Web Attack  XSS' 'Web Attack  Sql Injection'
+ 'DDoS' 'PortScan' 'Bot']
+2026-01-23 23:06:21,297 - utils - INFO - Label mapping:
+2026-01-23 23:06:21,297 - utils - INFO -   0: BENIGN
+2026-01-23 23:06:21,298 - utils - INFO -   1: Bot
+2026-01-23 23:06:21,298 - utils - INFO -   2: DDoS
+2026-01-23 23:06:21,298 - utils - INFO -   3: DoS GoldenEye
+2026-01-23 23:06:21,298 - utils - INFO -   4: DoS Hulk
+2026-01-23 23:06:21,298 - utils - INFO -   5: DoS Slowhttptest
+2026-01-23 23:06:21,304 - utils - INFO -   6: DoS slowloris
+2026-01-23 23:06:21,304 - utils - INFO -   7: FTP-Patator
+2026-01-23 23:06:21,304 - utils - INFO -   8: Heartbleed
+2026-01-23 23:06:21,304 - utils - INFO -   9: Infiltration
+2026-01-23 23:06:21,304 - utils - INFO -   10: PortScan
+2026-01-23 23:06:21,304 - utils - INFO -   11: SSH-Patator
+2026-01-23 23:06:21,304 - utils - INFO -   12: Web Attack  Brute Force
+2026-01-23 23:06:21,304 - utils - INFO -   13: Web Attack  Sql Injection
+2026-01-23 23:06:21,304 - utils - INFO -   14: Web Attack  XSS
+2026-01-23 23:06:21,304 - utils - INFO - Selected 2 numerical features
+2026-01-23 23:06:21,313 - utils - INFO - Final feature count: 2
+2026-01-23 23:06:22,734 - utils - INFO - Scaling features...
+2026-01-23 23:06:35,890 - utils - INFO - Preprocessor saved to ../data/processed/preprocessor.joblib
+2026-01-23 23:06:35,890 - utils - INFO - Data saved to ../data/processed
+2026-01-23 23:06:36,031 - utils - INFO - Training data shape: (1981520, 2)
+2026-01-23 23:06:36,031 - utils - INFO - Test data shape: (849223, 2)
+2026-01-23 23:06:36,031 - utils - INFO - Number of features: 2
+2026-01-23 23:06:36,077 - utils - INFO - Class 0: 1591168 samples (80.30%)
+2026-01-23 23:06:36,077 - utils - INFO - Class 1: 1376 samples (0.07%)
+2026-01-23 23:06:36,077 - utils - INFO - Class 2: 89619 samples (4.52%)
+2026-01-23 23:06:36,077 - utils - INFO - Class 3: 7205 samples (0.36%)
+2026-01-23 23:06:36,077 - utils - INFO - Class 4: 161751 samples (8.16%)
+2026-01-23 23:06:36,077 - utils - INFO - Class 5: 3849 samples (0.19%)
+2026-01-23 23:06:36,077 - utils - INFO - Class 6: 4057 samples (0.20%)
+2026-01-23 23:06:36,077 - utils - INFO - Class 7: 5557 samples (0.28%)
+2026-01-23 23:06:36,086 - utils - INFO - Class 8: 8 samples (0.00%)
+2026-01-23 23:06:36,086 - utils - INFO - Class 9: 25 samples (0.00%)
+2026-01-23 23:06:36,086 - utils - INFO - Class 10: 111251 samples (5.61%)
+2026-01-23 23:06:36,086 - utils - INFO - Class 11: 4128 samples (0.21%)
+2026-01-23 23:06:36,086 - utils - INFO - Class 12: 1055 samples (0.05%)
+2026-01-23 23:06:36,086 - utils - INFO - Class 13: 15 samples (0.00%)
+2026-01-23 23:06:36,086 - utils - INFO - Class 14: 456 samples (0.02%)
+2026-01-23 23:06:36,086 - utils - INFO - Data preprocessing completed in 53.88 seconds
+2026-01-23 23:06:36,086 - utils - INFO - 
+======================================================================
+2026-01-23 23:06:36,086 - utils - INFO - PHASE 2: MODEL TRAINING
+2026-01-23 23:06:36,086 - utils - INFO - ======================================================================
+2026-01-23 23:06:36,086 - utils - INFO - Training random_forest model...
+2026-01-23 23:06:36,093 - utils - INFO - Building Random Forest model...
+2026-01-23 23:08:12,570 - utils - INFO - Model training completed
+2026-01-23 23:08:12,570 - utils - INFO - Model evaluation on test set:
+2026-01-23 23:08:12,570 - utils - INFO - Evaluating model...
+2026-01-23 23:08:23,194 - utils - INFO - Accuracy: 0.9439
+2026-01-23 23:08:23,194 - utils - INFO - Confusion Matrix:
+[[679421      2    204     40   1449     45      2      8      0      0
+     758      0      0      0      0]
+ [   584      6      0      0      0      0      0      0      0      0
+       0      0      0      0      0]
+ [  7359      0  31041      0      8      0      0      0      0      0
+       0      0      0      0      0]
+ [  2778      0      0    238     72      0      0      0      0      0
+       0      0      0      0      0]
+ [ 27574      0     25      6  41714      3      0      0      0      0
+       0      0      0      0      0]
+ [  1480      0      0      0     25    115      2      0      0      0
+      28      0      0      0      0]
+ [  1244      0      0      0      0      0    480      0      0      0
+      15      0      0      0      0]
+ [  1228      0      3      0      0      0      0   1150      0      0
+       0      0      0      0      0]
+ [     0      0      0      0      0      0      0      0      3      0
+       0      0      0      0      0]
+ [    10      0      0      0      0      0      0      0      0      1
+       0      0      0      0      0]
+ [   285      0      0      0     14      9      0      0      0      0
+   47371      0      0      0      0]
+ [  1766      0      2      0      1      0      0      0      0      0
+       0      0      0      0      0]
+ [   442      0      0      0     10      0      0      0      0      0
+       0      0      0      0      0]
+ [     6      0      0      0      0      0      0      0      0      0
+       0      0      0      0      0]
+ [   196      0      0      0      0      0      0      0      0      0
+       0      0      0      0      0]]
+2026-01-23 23:08:23,226 - utils - WARNING - AUC-ROC calculation failed: multi_class must be in ('ovo', 'ovr')
+2026-01-23 23:08:23,522 - utils - INFO - Model saved to ./models/trained/ids_model.joblib
+2026-01-23 23:08:23,524 - utils - INFO - Preprocessor saved to ./models/trained/scaler.joblib
+2026-01-23 23:08:23,524 - utils - INFO - Model training completed in 107.44 seconds
+2026-01-23 23:08:23,524 - utils - INFO - 
+======================================================================
+2026-01-23 23:08:23,524 - utils - INFO - PHASE 3: DRIFT DETECTION SETUP
+2026-01-23 23:08:23,524 - utils - INFO - ======================================================================
+2026-01-23 23:08:23,524 - utils - INFO - Reference data shape: (10000, 2)
+2026-01-23 23:08:23,524 - utils - INFO - Number of features for drift detection: 2
+2026-01-23 23:08:23,524 - utils - INFO - Reference data shape: (10000, 2)
+2026-01-23 23:08:23,524 - utils - INFO - Number of features for drift detection: 2
+2026-01-23 23:08:23,524 - utils - INFO - 
+Simulating data stream for drift detection...
+2026-01-23 23:08:23,554 - utils - INFO - Processed batch 0/50
+2026-01-23 23:08:23,679 - utils - INFO - Processed batch 10/50
+2026-01-23 23:08:23,788 - utils - INFO - Processed batch 20/50
+2026-01-23 23:08:23,899 - utils - INFO - Processed batch 30/50
+2026-01-23 23:08:24,007 - utils - INFO - Processed batch 40/50
+2026-01-23 23:08:24,101 - utils - INFO - Drift Detection Summary:
+2026-01-23 23:08:24,101 - utils - INFO -   total_batches: 50
+2026-01-23 23:08:24,118 - utils - INFO -   total_ks_drifts: 0
+2026-01-23 23:08:24,118 - utils - INFO -   total_psi_drifts: 0
+2026-01-23 23:08:24,118 - utils - INFO -   total_drifts: 0
+2026-01-23 23:08:24,118 - utils - INFO -   drift_rate: 0.0
+2026-01-23 23:08:24,118 - utils - INFO -   avg_drift_magnitude: 0.004469168485102757
+2026-01-23 23:08:24,118 - utils - INFO -   max_drift_magnitude: 0.010533761501688613
+2026-01-23 23:08:24,118 - utils - INFO -   total_alerts: 0
+2026-01-23 23:08:24,132 - utils - INFO - Drift detector saved to ./models/drift_detectors/drift_detector.joblib
+2026-01-23 23:08:24,132 - utils - INFO - Drift detection completed in 0.61 seconds
+2026-01-23 23:08:24,132 - utils - INFO - 
+======================================================================
+2026-01-23 23:08:24,132 - utils - INFO - PHASE 4: VISUALIZATION AND ANALYSIS
+2026-01-23 23:08:24,132 - utils - INFO - ======================================================================
+2026-01-23 23:08:24,132 - utils - INFO - Generating visualizations...

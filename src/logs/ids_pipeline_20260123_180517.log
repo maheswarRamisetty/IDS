@@ -1,0 +1,84 @@
+2026-01-23 18:05:17,287 - utils - INFO - ======================================================================
+2026-01-23 18:05:17,287 - utils - INFO - NETWORK INTRUSION DETECTION SYSTEM WITH DRIFT DETECTION
+2026-01-23 18:05:17,287 - utils - INFO - ======================================================================
+2026-01-23 18:05:17,287 - utils - INFO - Start Time: 2026-01-23 18:05:17
+2026-01-23 18:05:17,303 - utils - INFO - Configuration loaded
+2026-01-23 18:05:17,303 - utils - INFO - Found 8 CSV files in ../data/raw
+2026-01-23 18:05:17,303 - utils - INFO -   - Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+2026-01-23 18:05:17,303 - utils - INFO -   - Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+2026-01-23 18:05:17,303 - utils - INFO -   - Friday-WorkingHours-Morning.pcap_ISCX.csv
+2026-01-23 18:05:17,303 - utils - INFO -   - Monday-WorkingHours.pcap_ISCX.csv
+2026-01-23 18:05:17,303 - utils - INFO -   - Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+2026-01-23 18:05:17,303 - utils - INFO -   - Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+2026-01-23 18:05:17,303 - utils - INFO -   - Tuesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 18:05:17,303 - utils - INFO -   - Wednesday-workingHours.pcap_ISCX.csv
+2026-01-23 18:05:17,303 - utils - INFO - 
+======================================================================
+2026-01-23 18:05:17,303 - utils - INFO - PHASE 1: DATA PREPROCESSING
+2026-01-23 18:05:17,303 - utils - INFO - ======================================================================
+2026-01-23 18:05:17,303 - utils - INFO - Starting data preparation pipeline...
+2026-01-23 18:05:17,303 - utils - INFO - Loading Monday-WorkingHours.pcap_ISCX.csv
+2026-01-23 18:05:20,943 - utils - INFO - Loaded Monday-WorkingHours.pcap_ISCX.csv: (529918, 79)
+2026-01-23 18:05:21,068 - utils - INFO - Loading Tuesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 18:05:23,943 - utils - INFO - Loaded Tuesday-WorkingHours.pcap_ISCX.csv: (445909, 79)
+2026-01-23 18:05:24,037 - utils - INFO - Loading Wednesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 18:05:28,615 - utils - INFO - Loaded Wednesday-WorkingHours.pcap_ISCX.csv: (692703, 79)
+2026-01-23 18:05:28,771 - utils - INFO - Loading Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+2026-01-23 18:05:30,583 - utils - INFO - Loaded Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv: (288602, 79)
+2026-01-23 18:05:30,646 - utils - INFO - Loading Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+2026-01-23 18:05:31,771 - utils - INFO - Loaded Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv: (170366, 79)
+2026-01-23 18:05:31,818 - utils - INFO - Loading Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+2026-01-23 18:05:33,333 - utils - INFO - Loaded Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv: (225745, 79)
+2026-01-23 18:05:33,380 - utils - INFO - Loading Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+2026-01-23 18:05:35,052 - utils - INFO - Loaded Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv: (286467, 79)
+2026-01-23 18:05:35,115 - utils - INFO - Loading Friday-WorkingHours-Morning.pcap_ISCX.csv
+2026-01-23 18:05:36,380 - utils - INFO - Loaded Friday-WorkingHours-Morning.pcap_ISCX.csv: (191033, 79)
+2026-01-23 18:05:37,676 - utils - INFO - Combined data shape: (2830743, 79)
+2026-01-23 18:05:37,786 - utils - INFO - Starting data cleaning...
+2026-01-23 18:05:37,786 - utils - INFO - Original shape: (2830743, 79)
+2026-01-23 18:05:51,425 - utils - INFO - Final shape after cleaning: (2830743, 79)
+2026-01-23 18:05:51,425 - utils - INFO - Removed 0 rows
+2026-01-23 18:05:51,520 - utils - INFO - Encoding target variable...
+2026-01-23 18:05:52,347 - utils - INFO - Label mapping:
+2026-01-23 18:05:52,347 - utils - INFO -   0: BENIGN
+2026-01-23 18:05:52,353 - utils - INFO -   1: Bot
+2026-01-23 18:05:52,353 - utils - INFO -   2: DDoS
+2026-01-23 18:05:52,353 - utils - INFO -   3: DoS GoldenEye
+2026-01-23 18:05:52,353 - utils - INFO -   4: DoS Hulk
+2026-01-23 18:05:52,353 - utils - INFO -   5: DoS Slowhttptest
+2026-01-23 18:05:52,360 - utils - INFO -   6: DoS slowloris
+2026-01-23 18:05:52,360 - utils - INFO -   7: FTP-Patator
+2026-01-23 18:05:52,360 - utils - INFO -   8: Heartbleed
+2026-01-23 18:05:52,360 - utils - INFO -   9: Infiltration
+2026-01-23 18:05:52,360 - utils - INFO -   10: PortScan
+2026-01-23 18:05:52,363 - utils - INFO -   11: SSH-Patator
+2026-01-23 18:05:52,378 - utils - INFO - Selected 2 numerical features
+2026-01-23 18:05:52,410 - utils - INFO - Final feature count: 2
+2026-01-23 18:05:53,847 - utils - INFO - Scaling features...
+2026-01-23 18:06:07,112 - utils - INFO - Preprocessor saved to ../data/processed/preprocessor.joblib
+2026-01-23 18:06:07,112 - utils - INFO - Data saved to ../data/processed
+2026-01-23 18:06:07,268 - utils - INFO - Training data shape: (1981520, 2)
+2026-01-23 18:06:07,268 - utils - INFO - Test data shape: (849223, 2)
+2026-01-23 18:06:07,272 - utils - INFO - Number of features: 2
+2026-01-23 18:06:07,310 - utils - INFO - Class 0: 1591168 samples (80.30%)
+2026-01-23 18:06:07,310 - utils - INFO - Class 1: 1376 samples (0.07%)
+2026-01-23 18:06:07,313 - utils - INFO - Class 2: 89619 samples (4.52%)
+2026-01-23 18:06:07,314 - utils - INFO - Class 3: 7205 samples (0.36%)
+2026-01-23 18:06:07,315 - utils - INFO - Class 4: 161751 samples (8.16%)
+2026-01-23 18:06:07,315 - utils - INFO - Class 5: 3849 samples (0.19%)
+2026-01-23 18:06:07,316 - utils - INFO - Class 6: 4057 samples (0.20%)
+2026-01-23 18:06:07,317 - utils - INFO - Class 7: 5557 samples (0.28%)
+2026-01-23 18:06:07,317 - utils - INFO - Class 8: 8 samples (0.00%)
+2026-01-23 18:06:07,318 - utils - INFO - Class 9: 25 samples (0.00%)
+2026-01-23 18:06:07,318 - utils - INFO - Class 10: 111251 samples (5.61%)
+2026-01-23 18:06:07,319 - utils - INFO - Class 11: 4128 samples (0.21%)
+2026-01-23 18:06:07,320 - utils - INFO - Class 12: 1055 samples (0.05%)
+2026-01-23 18:06:07,320 - utils - INFO - Class 13: 15 samples (0.00%)
+2026-01-23 18:06:07,321 - utils - INFO - Class 14: 456 samples (0.02%)
+2026-01-23 18:06:07,322 - utils - INFO - Data preprocessing completed in 50.02 seconds
+2026-01-23 18:06:07,322 - utils - INFO - 
+======================================================================
+2026-01-23 18:06:07,323 - utils - INFO - PHASE 2: MODEL TRAINING
+2026-01-23 18:06:07,323 - utils - INFO - ======================================================================
+2026-01-23 18:06:07,324 - utils - INFO - Training random_forest model...
+2026-01-23 18:06:07,325 - utils - INFO - Building Random Forest model...

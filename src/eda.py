@@ -5,6 +5,8 @@ import missingno as msno
 import matplotlib.pyplot as plt
 import os
 from pathlib import Path
+from values import attack_map
+from sklearn.preprocessing import LabelEncoder
 
 class DataCleaner:
 
@@ -52,8 +54,14 @@ class DataCleaner:
             print(full_df.shape)
             print(full_df.head())
 
-
-    
+    def _hist(self):
+        colors = sns.color_palette('Blues')
+        plt.hist(self._data['Flow Bytes/s'], color = colors[1])
+        plt.title('Histogram of Flow Bytes/s')
+        plt.xlabel('Flow Bytes/s')
+        plt.ylabel('Frequency')
+        plt.show()
+            
     def _box(self):
         plt.figure(figsize = (8, 3))
         sns.boxplot(x = self._data['Flow Bytes/s'])
@@ -79,12 +87,56 @@ class DataCleaner:
     def _delete_fs(self,ok=True):
         for d in self.dfs: del d 
 
+
+    def save_cor_to_png(self, filename="correlation.png"):
+        os.makedirs("fig", exist_ok=True)
+        filepath = os.path.join("fig", filename)
+
+        numeric_df = self._data.select_dtypes(include=['number'])
+        corr = numeric_df.corr().round(3)
+
+        plt.figure(figsize=(12,10))
+        sns.heatmap(corr, cmap="coolwarm", cbar=True)
+        plt.title("Correlation Matrix")
+        plt.tight_layout()
+        plt.savefig(filepath, dpi=300)
+        plt.close()
+
+        if 'Attack Number' in corr.columns:
+            pos_corr_features = corr['Attack Number'][(corr['Attack Number'] > 0) & (corr['Attack Number'] < 1)].index.tolist()
+
+            print("Features with positive correlation with 'Attack Number':\n")
+            for i, feature in enumerate(pos_corr_features, start=1):
+                corr_value = corr.loc[feature, 'Attack Number']
+                print('{:<3} {:<30} : {}'.format(f'{i}.', feature, corr_value))
+
+    
     def _preprocess_columns(self):
         col_names = {col : col.strip() for col in self._data.columns}
         self._data.rename(columns = col_names , inplace = True)
         self._dbg(self._data.columns)
         print("DATA INFO : ")
         self._dbg(self._data.info)
+
+    def _encode(self):
+        lE = LabelEncoder()
+        self._data['Attack Number'] = lE.fit_transform(self._data['Attack Type']) 
+        print(self._data['Attack Number'].unique())
+        enc_vals = self._data['Attack Number'].unique()
+        print([lE.inverse_transform([x])[0] for x in sorted(enc_vals)])
+
+    def _outlier(self):
+        numeric_data = self._data.select_dtypes(include = ['float', 'int'])
+        q1 = numeric_data.quantile(0.25)
+        q3 = numeric_data.quantile(0.75)
+        iqr = q3 - q1
+        outlier = (numeric_data < (q1 - 1.5 * iqr)) | (numeric_data > (q3 + 1.5 * iqr))
+        outlier_count = outlier.sum()
+        outlier_percentage = round(outlier.mean() * 100, 2)
+        outlier_stats = pd.concat([outlier_count, outlier_percentage], axis = 1)
+        outlier_stats.columns = ['Outlier Count', 'Outlier Percentage']
+
+        print(outlier_stats)
 
     def _describe(self):
         self._get_dims()
@@ -111,15 +163,23 @@ class DataCleaner:
 
         missing_vals = [col for col in self._data.columns if self._data[col].isna().any()]
 
-        fig, ax = plt.subplots(figsize = (2, 6))
-        msno.bar(self._data[missing_vals], ax = ax, fontsize = 12, color = colors)
-        ax.set_xlabel('Features', fontsize = 12)
-        ax.set_ylabel('Non-Null Value Count', fontsize = 12)
-        ax.set_title('Missing Value Chart', fontsize = 12)
-        plt.show()
+        # fig, ax = plt.subplots(figsize = (2, 6))
+        # msno.bar(self._data[missing_vals], ax = ax, fontsize = 12, color = colors)
+        # ax.set_xlabel('Features', fontsize = 12)
+        # ax.set_ylabel('Non-Null Value Count', fontsize = 12)
+        # ax.set_title('Missing Value Chart', fontsize = 12)
+        # plt.show()
+
+        print(self._data['Label'].unique())     
+        self._data['Attack Type']= self._data['Label'].map(attack_map)
+        # print(self._data['Attack Type'].value_counts())
+        self._data.drop('Label',axis=1,inplace=True)
+        self._encode()
+        self.save_cor_to_png()
         
+
 
 if __name__=="__main__":
     dC=DataCleaner("../data/raw")
     dC._process()
-    dC._box()
+    # dC._box()

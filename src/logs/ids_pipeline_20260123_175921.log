@@ -1,0 +1,22 @@
+2026-01-23 17:59:21,821 - utils - INFO - ======================================================================
+2026-01-23 17:59:21,821 - utils - INFO - NETWORK INTRUSION DETECTION SYSTEM WITH DRIFT DETECTION
+2026-01-23 17:59:21,825 - utils - INFO - ======================================================================
+2026-01-23 17:59:21,825 - utils - INFO - Start Time: 2026-01-23 17:59:21
+2026-01-23 17:59:21,826 - utils - INFO - Configuration loaded
+2026-01-23 17:59:21,832 - utils - INFO - Found 0 CSV files in ./data/raw
+2026-01-23 17:59:21,832 - utils - INFO - 
+======================================================================
+2026-01-23 17:59:21,833 - utils - INFO - PHASE 1: DATA PREPROCESSING
+2026-01-23 17:59:21,833 - utils - INFO - ======================================================================
+2026-01-23 17:59:21,834 - utils - INFO - Starting data preparation pipeline...
+2026-01-23 17:59:21,835 - utils - WARNING - File not found: ./data/raw\Monday-WorkingHours.pcap_ISCX.csv
+2026-01-23 17:59:21,835 - utils - WARNING - File not found: ./data/raw\Tuesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 17:59:21,836 - utils - WARNING - File not found: ./data/raw\Wednesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 17:59:21,836 - utils - WARNING - File not found: ./data/raw\Thursday-WorkingHours.pcap_ISCX.csv
+2026-01-23 17:59:21,837 - utils - WARNING - File not found: ./data/raw\Friday-WorkingHours.pcap_ISCX.csv
+2026-01-23 17:59:21,838 - utils - WARNING - File not found: ./data/raw\Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+2026-01-23 17:59:21,839 - utils - WARNING - File not found: ./data/raw\Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+2026-01-23 17:59:21,841 - utils - WARNING - File not found: ./data/raw\Friday-WorkingHours-Morning.pcap_ISCX.csv
+2026-01-23 17:59:21,841 - utils - ERROR - Error during data preprocessing: No data files could be loaded
+2026-01-23 17:59:21,841 - utils - ERROR - Trying alternative loading method...
+2026-01-23 17:59:21,841 - utils - ERROR - No data could be loaded. Exiting.

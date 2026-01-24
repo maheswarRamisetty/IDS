@@ -1,0 +1,212 @@
+2026-01-23 23:28:11,138 - utils - INFO - ======================================================================
+2026-01-23 23:28:11,138 - utils - INFO - NETWORK INTRUSION DETECTION SYSTEM WITH DRIFT DETECTION
+2026-01-23 23:28:11,138 - utils - INFO - ======================================================================
+2026-01-23 23:28:11,138 - utils - INFO - Start Time: 2026-01-23 23:28:11
+2026-01-23 23:28:11,138 - utils - INFO - Configuration loaded
+2026-01-23 23:28:11,138 - utils - INFO - Found 8 CSV files in ../data/raw
+2026-01-23 23:28:11,138 - utils - INFO - 
+======================================================================
+2026-01-23 23:28:11,138 - utils - INFO - PHASE 1: DATA PREPROCESSING
+2026-01-23 23:28:11,138 - utils - INFO - ======================================================================
+2026-01-23 23:28:11,138 - utils - INFO - Starting data preparation pipeline...
+2026-01-23 23:28:11,138 - utils - INFO - Loading Monday-WorkingHours.pcap_ISCX.csv
+2026-01-23 23:28:14,825 - utils - INFO - Loaded Monday-WorkingHours.pcap_ISCX.csv: (529918, 79)
+2026-01-23 23:28:14,950 - utils - INFO - Loading Tuesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 23:28:17,856 - utils - INFO - Loaded Tuesday-WorkingHours.pcap_ISCX.csv: (445909, 79)
+2026-01-23 23:28:17,965 - utils - INFO - Loading Wednesday-WorkingHours.pcap_ISCX.csv
+2026-01-23 23:28:22,606 - utils - INFO - Loaded Wednesday-WorkingHours.pcap_ISCX.csv: (692703, 79)
+2026-01-23 23:28:22,762 - utils - INFO - Loading Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+2026-01-23 23:28:24,574 - utils - INFO - Loaded Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv: (288602, 79)
+2026-01-23 23:28:24,637 - utils - INFO - Loading Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+2026-01-23 23:28:25,777 - utils - INFO - Loaded Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv: (170366, 79)
+2026-01-23 23:28:25,813 - utils - INFO - Loading Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+2026-01-23 23:28:27,465 - utils - INFO - Loaded Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv: (225745, 79)
+2026-01-23 23:28:27,512 - utils - INFO - Loading Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+2026-01-23 23:28:29,168 - utils - INFO - Loaded Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv: (286467, 79)
+2026-01-23 23:28:29,231 - utils - INFO - Loading Friday-WorkingHours-Morning.pcap_ISCX.csv
+2026-01-23 23:28:30,501 - utils - INFO - Loaded Friday-WorkingHours-Morning.pcap_ISCX.csv: (191033, 79)
+2026-01-23 23:28:31,824 - utils - INFO - Combined data shape: (2830743, 79)
+2026-01-23 23:28:31,938 - utils - INFO - Starting data cleaning...
+2026-01-23 23:28:31,938 - utils - INFO - Original shape: (2830743, 79)
+2026-01-23 23:28:45,438 - utils - INFO - Final shape after cleaning: (2830743, 79)
+2026-01-23 23:28:45,438 - utils - INFO - Removed 0 rows
+2026-01-23 23:28:45,544 - utils - INFO - Encoding target variable...
+2026-01-23 23:28:49,775 - utils - INFO - Unique labels found: ['BENIGN' 'FTP-Patator' 'SSH-Patator' 'DoS slowloris' 'DoS Slowhttptest'
+ 'DoS Hulk' 'DoS GoldenEye' 'Heartbleed' 'Infiltration'
+ 'Web Attack  Brute Force' 'Web Attack  XSS' 'Web Attack  Sql Injection'
+ 'DDoS' 'PortScan' 'Bot']
+2026-01-23 23:28:50,477 - utils - INFO - Label mapping:
+2026-01-23 23:28:50,478 - utils - INFO -   0: BENIGN
+2026-01-23 23:28:50,481 - utils - INFO -   1: Bot
+2026-01-23 23:28:50,482 - utils - INFO -   2: DDoS
+2026-01-23 23:28:50,482 - utils - INFO -   3: DoS GoldenEye
+2026-01-23 23:28:50,483 - utils - INFO -   4: DoS Hulk
+2026-01-23 23:28:50,484 - utils - INFO -   5: DoS Slowhttptest
+2026-01-23 23:28:50,484 - utils - INFO -   6: DoS slowloris
+2026-01-23 23:28:50,485 - utils - INFO -   7: FTP-Patator
+2026-01-23 23:28:50,490 - utils - INFO -   8: Heartbleed
+2026-01-23 23:28:50,491 - utils - INFO -   9: Infiltration
+2026-01-23 23:28:50,491 - utils - INFO -   10: PortScan
+2026-01-23 23:28:50,492 - utils - INFO -   11: SSH-Patator
+2026-01-23 23:28:50,493 - utils - INFO -   12: Web Attack  Brute Force
+2026-01-23 23:28:50,493 - utils - INFO -   13: Web Attack  Sql Injection
+2026-01-23 23:28:50,494 - utils - INFO -   14: Web Attack  XSS
+2026-01-23 23:28:50,495 - utils - INFO - Selected 2 numerical features
+2026-01-23 23:28:50,516 - utils - INFO - Final feature count: 2
+2026-01-23 23:28:51,968 - utils - INFO - Scaling features...
+2026-01-23 23:29:05,391 - utils - INFO - Preprocessor saved to ../data/processed/preprocessor.joblib
+2026-01-23 23:29:05,391 - utils - INFO - Data saved to ../data/processed
+2026-01-23 23:29:05,527 - utils - INFO - Training data shape: (1981520, 2)
+2026-01-23 23:29:05,527 - utils - INFO - Test data shape: (849223, 2)
+2026-01-23 23:29:05,531 - utils - INFO - Number of features: 2
+2026-01-23 23:29:05,532 - utils - INFO - Feature names (first 5): ['Total Length of Fwd Packets', 'Flow Bytes/s']
+2026-01-23 23:29:05,568 - utils - INFO - Classes in training data: 15
+2026-01-23 23:29:05,568 - utils - INFO -   Class 0: 1591168 samples (80.30%)
+2026-01-23 23:29:05,573 - utils - INFO -   Class 1: 1376 samples (0.07%)
+2026-01-23 23:29:05,574 - utils - INFO -   Class 2: 89619 samples (4.52%)
+2026-01-23 23:29:05,575 - utils - INFO -   Class 3: 7205 samples (0.36%)
+2026-01-23 23:29:05,575 - utils - INFO -   Class 4: 161751 samples (8.16%)
+2026-01-23 23:29:05,576 - utils - INFO -   Class 5: 3849 samples (0.19%)
+2026-01-23 23:29:05,576 - utils - INFO -   Class 6: 4057 samples (0.20%)
+2026-01-23 23:29:05,577 - utils - INFO -   Class 7: 5557 samples (0.28%)
+2026-01-23 23:29:05,578 - utils - INFO -   Class 8: 8 samples (0.00%)
+2026-01-23 23:29:05,578 - utils - INFO -   Class 9: 25 samples (0.00%)
+2026-01-23 23:29:05,579 - utils - INFO -   Class 10: 111251 samples (5.61%)
+2026-01-23 23:29:05,580 - utils - INFO -   Class 11: 4128 samples (0.21%)
+2026-01-23 23:29:05,580 - utils - INFO -   Class 12: 1055 samples (0.05%)
+2026-01-23 23:29:05,581 - utils - INFO -   Class 13: 15 samples (0.00%)
+2026-01-23 23:29:05,582 - utils - INFO -   Class 14: 456 samples (0.02%)
+2026-01-23 23:29:05,582 - utils - INFO - Data preprocessing completed in 54.44 seconds
+2026-01-23 23:29:05,583 - utils - INFO - 
+======================================================================
+2026-01-23 23:29:05,588 - utils - INFO - PHASE 2: MODEL TRAINING
+2026-01-23 23:29:05,589 - utils - INFO - ======================================================================
+2026-01-23 23:29:05,590 - utils - INFO - Training random_forest model...
+2026-01-23 23:29:05,590 - utils - INFO - Building Random Forest model...
+2026-01-23 23:30:50,368 - utils - INFO - Model training completed
+2026-01-23 23:30:50,369 - utils - INFO - Model evaluation on test set:
+2026-01-23 23:30:50,370 - utils - INFO - Evaluating model...
+2026-01-23 23:30:56,330 - utils - INFO - Accuracy: 0.9439
+2026-01-23 23:30:56,330 - utils - INFO - Confusion Matrix shape: (15, 15)
+2026-01-23 23:31:03,642 - utils - INFO - AUC-ROC: 0.9778
+2026-01-23 23:31:03,945 - utils - INFO - Model saved to ./models/trained/ids_model.joblib
+2026-01-23 23:31:03,948 - utils - INFO - Preprocessor saved to ./models/trained/scaler.joblib
+2026-01-23 23:31:03,948 - utils - INFO - Model training completed in 118.36 seconds
+2026-01-23 23:31:03,949 - utils - INFO - 
+======================================================================
+2026-01-23 23:31:03,949 - utils - INFO - PHASE 3: DRIFT DETECTION SETUP
+2026-01-23 23:31:03,949 - utils - INFO - ======================================================================
+2026-01-23 23:31:03,949 - utils - INFO - Using 5000 samples as reference data
+2026-01-23 23:31:03,949 - utils - INFO - Reference data set with shape: (5000, 2)
+2026-01-23 23:31:03,950 - utils - INFO - Number of features: 2
+2026-01-23 23:31:03,950 - utils - INFO - 
+Starting drift detection with intentional drift simulation...
+2026-01-23 23:31:03,950 - utils - INFO - Starting streaming drift detection...
+2026-01-23 23:31:03,950 - utils - INFO - Processing 50 batches of size 16984
+2026-01-23 23:31:03,961 - utils - INFO - Processed batch 0/50
+2026-01-23 23:31:04,010 - utils - INFO - Processed batch 5/50
+2026-01-23 23:31:04,060 - utils - INFO - Processed batch 10/50
+2026-01-23 23:31:04,100 - utils - INFO - Simulating MAJOR drift in batch 15
+2026-01-23 23:31:04,170 - utils - WARNING - DRIFT DETECTED! KS: False, PSI: True
+2026-01-23 23:31:04,171 - utils - WARNING - Drift magnitude: 2.5431
+2026-01-23 23:31:04,171 - utils - WARNING - Features with drift: 2
+2026-01-23 23:31:04,171 - utils - INFO - Processed batch 15/50
+2026-01-23 23:31:04,172 - utils - INFO - Simulating MAJOR drift in batch 16
+2026-01-23 23:31:04,184 - utils - WARNING - DRIFT DETECTED! KS: False, PSI: True
+2026-01-23 23:31:04,184 - utils - WARNING - Drift magnitude: 2.5810
+2026-01-23 23:31:04,184 - utils - WARNING - Features with drift: 2
+2026-01-23 23:31:04,185 - utils - INFO - Simulating MAJOR drift in batch 17
+2026-01-23 23:31:04,197 - utils - WARNING - DRIFT DETECTED! KS: False, PSI: True
+2026-01-23 23:31:04,197 - utils - WARNING - Drift magnitude: 2.5945
+2026-01-23 23:31:04,197 - utils - WARNING - Features with drift: 2
+2026-01-23 23:31:04,198 - utils - INFO - Simulating MAJOR drift in batch 18
+2026-01-23 23:31:04,209 - utils - WARNING - DRIFT DETECTED! KS: False, PSI: True
+2026-01-23 23:31:04,210 - utils - WARNING - Drift magnitude: 2.5543
+2026-01-23 23:31:04,210 - utils - WARNING - Features with drift: 2
+2026-01-23 23:31:04,210 - utils - INFO - Simulating MAJOR drift in batch 19
+2026-01-23 23:31:04,222 - utils - WARNING - DRIFT DETECTED! KS: False, PSI: True
+2026-01-23 23:31:04,222 - utils - WARNING - Drift magnitude: 2.5318
+2026-01-23 23:31:04,223 - utils - WARNING - Features with drift: 2
+2026-01-23 23:31:04,223 - utils - INFO - Simulating MAJOR drift in batch 20
+2026-01-23 23:31:04,235 - utils - WARNING - DRIFT DETECTED! KS: False, PSI: True
+2026-01-23 23:31:04,235 - utils - WARNING - Drift magnitude: 2.5471
+2026-01-23 23:31:04,235 - utils - WARNING - Features with drift: 2
+2026-01-23 23:31:04,236 - utils - INFO - Processed batch 20/50
+2026-01-23 23:31:04,236 - utils - INFO - Simulating MAJOR drift in batch 21
+2026-01-23 23:31:04,248 - utils - WARNING - DRIFT DETECTED! KS: False, PSI: True
+2026-01-23 23:31:04,248 - utils - WARNING - Drift magnitude: 2.5479
+2026-01-23 23:31:04,248 - utils - WARNING - Features with drift: 2
+2026-01-23 23:31:04,249 - utils - INFO - Simulating MAJOR drift in batch 22
+2026-01-23 23:31:04,261 - utils - WARNING - DRIFT DETECTED! KS: False, PSI: True
+2026-01-23 23:31:04,261 - utils - WARNING - Drift magnitude: 2.5803
+2026-01-23 23:31:04,261 - utils - WARNING - Features with drift: 2
+2026-01-23 23:31:04,261 - utils - INFO - Simulating MAJOR drift in batch 23
+2026-01-23 23:31:04,273 - utils - WARNING - DRIFT DETECTED! KS: False, PSI: True
+2026-01-23 23:31:04,273 - utils - WARNING - Drift magnitude: 2.5543
+2026-01-23 23:31:04,274 - utils - WARNING - Features with drift: 2
+2026-01-23 23:31:04,274 - utils - INFO - Simulating MAJOR drift in batch 24
+2026-01-23 23:31:04,286 - utils - WARNING - DRIFT DETECTED! KS: False, PSI: True
+2026-01-23 23:31:04,286 - utils - WARNING - Drift magnitude: 2.5946
+2026-01-23 23:31:04,287 - utils - WARNING - Features with drift: 2
+2026-01-23 23:31:04,297 - utils - INFO - Processed batch 25/50
+2026-01-23 23:31:04,346 - utils - INFO - Processed batch 30/50
+2026-01-23 23:31:04,386 - utils - INFO - Simulating MODERATE drift in batch 35
+2026-01-23 23:31:04,396 - utils - INFO - Processed batch 35/50
+2026-01-23 23:31:04,397 - utils - INFO - Simulating MODERATE drift in batch 36
+2026-01-23 23:31:04,406 - utils - INFO - Simulating MODERATE drift in batch 37
+2026-01-23 23:31:04,417 - utils - INFO - Simulating MODERATE drift in batch 38
+2026-01-23 23:31:04,427 - utils - INFO - Simulating MODERATE drift in batch 39
+2026-01-23 23:31:04,446 - utils - INFO - Processed batch 40/50
+2026-01-23 23:31:04,496 - utils - INFO - Processed batch 45/50
+2026-01-23 23:31:04,536 - utils - INFO - Streaming drift detection completed
+2026-01-23 23:31:04,537 - utils - INFO - ==================================================
+2026-01-23 23:31:04,537 - utils - INFO - DRIFT DETECTION SUMMARY
+2026-01-23 23:31:04,538 - utils - INFO - ==================================================
+2026-01-23 23:31:04,538 - utils - INFO -   total_batches: 50
+2026-01-23 23:31:04,538 - utils - INFO -   total_ks_drifts: 0
+2026-01-23 23:31:04,538 - utils - INFO -   total_psi_drifts: 10
+2026-01-23 23:31:04,538 - utils - INFO -   total_drifts: 10
+2026-01-23 23:31:04,539 - utils - INFO -   drift_rate: 0.2
+2026-01-23 23:31:04,539 - utils - INFO -   avg_drift_magnitude: 0.5175648866822983
+2026-01-23 23:31:04,539 - utils - INFO -   max_drift_magnitude: 2.594646923285237
+2026-01-23 23:31:04,539 - utils - INFO -   total_alerts: 10
+2026-01-23 23:31:04,539 - utils - INFO - 
+Recent drift alerts:
+2026-01-23 23:31:04,540 - utils - INFO -   Batch 20: Magnitude 2.5471
+2026-01-23 23:31:04,540 - utils - INFO -   Batch 21: Magnitude 2.5479
+2026-01-23 23:31:04,540 - utils - INFO -   Batch 22: Magnitude 2.5803
+2026-01-23 23:31:04,540 - utils - INFO -   Batch 23: Magnitude 2.5543
+2026-01-23 23:31:04,541 - utils - INFO -   Batch 24: Magnitude 2.5946
+2026-01-23 23:31:04,541 - utils - INFO - ==================================================
+2026-01-23 23:31:04,556 - utils - INFO - Drift detector saved to ./models/drift_detectors/drift_detector.joblib
+2026-01-23 23:31:04,556 - utils - INFO - Drift detection completed in 0.61 seconds
+2026-01-23 23:31:04,570 - utils - INFO - 
+======================================================================
+2026-01-23 23:31:04,570 - utils - INFO - PHASE 4: VISUALIZATION AND ANALYSIS
+2026-01-23 23:31:04,570 - utils - INFO - ======================================================================
+2026-01-23 23:31:04,571 - utils - INFO - Generating visualizations...
+2026-01-23 23:31:06,072 - utils - INFO - Confusion matrix saved to ./figs/confusion_matrix_20260123_232811.png
+2026-01-23 23:31:06,423 - utils - ERROR - ROC curve generation failed: ufunc 'isfinite' not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule ''safe''
+2026-01-23 23:31:09,096 - utils - INFO - Drift history plot saved to ./figs/drift_history_20260123_232811.png
+2026-01-23 23:31:11,005 - utils - INFO - Drift statistics plot saved to ./figs/drift_statistics_20260123_232811.png
+2026-01-23 23:31:11,991 - utils - INFO - Feature importance plot saved to ./figs/feature_importance_20260123_232811.png
+2026-01-23 23:31:11,991 - utils - INFO - Visualization completed in 7.42 seconds
+2026-01-23 23:31:11,992 - utils - INFO - 
+======================================================================
+2026-01-23 23:31:11,992 - utils - INFO - PHASE 5: RESULTS SAVING
+2026-01-23 23:31:11,992 - utils - INFO - ======================================================================
+2026-01-23 23:31:12,035 - utils - INFO - Results saved to: ./results\results_20260123_232811.json
+2026-01-23 23:31:12,035 - utils - INFO - Drift alerts saved to: ./results\drift_alerts_20260123_232811.json
+2026-01-23 23:31:12,036 - utils - INFO - 
+======================================================================
+2026-01-23 23:31:12,037 - utils - INFO - PIPELINE EXECUTION SUMMARY
+2026-01-23 23:31:12,037 - utils - INFO - ======================================================================
+2026-01-23 23:31:12,037 - utils - INFO - Total execution time: 180.91 seconds
+2026-01-23 23:31:12,037 - utils - INFO - Model accuracy: 0.9439
+2026-01-23 23:31:12,037 - utils - INFO - Number of features: 2
+2026-01-23 23:31:12,038 - utils - INFO - Total drift alerts: 10
+2026-01-23 23:31:12,038 - utils - INFO - Drift rate: 20.00%
+2026-01-23 23:31:12,038 - utils - INFO - Figures saved to: ./figs
+2026-01-23 23:31:12,038 - utils - INFO - Logs saved to: ./logs
+2026-01-23 23:31:12,038 - utils - INFO - Results saved to: ./results
+2026-01-23 23:31:12,039 - utils - INFO - ======================================================================

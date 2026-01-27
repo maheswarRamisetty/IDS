@@ -1,0 +1,122 @@
+[
+    {
+        "timestamp": "2026-01-23 23:31:04",
+        "batch": 15,
+        "ks_drift": false,
+        "psi_drift": true,
+        "drift_magnitude": 2.5431226214631213,
+        "drift_features_count": 2,
+        "top_drift_features": [
+            "Total Length of Fwd Packets",
+            "Flow Bytes/s"
+        ]
+    },
+    {
+        "timestamp": "2026-01-23 23:31:04",
+        "batch": 16,
+        "ks_drift": false,
+        "psi_drift": true,
+        "drift_magnitude": 2.580981773427931,
+        "drift_features_count": 2,
+        "top_drift_features": [
+            "Total Length of Fwd Packets",
+            "Flow Bytes/s"
+        ]
+    },
+    {
+        "timestamp": "2026-01-23 23:31:04",
+        "batch": 17,
+        "ks_drift": false,
+        "psi_drift": true,
+        "drift_magnitude": 2.594525348622193,
+        "drift_features_count": 2,
+        "top_drift_features": [
+            "Total Length of Fwd Packets",
+            "Flow Bytes/s"
+        ]
+    },
+    {
+        "timestamp": "2026-01-23 23:31:04",
+        "batch": 18,
+        "ks_drift": false,
+        "psi_drift": true,
+        "drift_magnitude": 2.554332561759082,
+        "drift_features_count": 2,
+        "top_drift_features": [
+            "Total Length of Fwd Packets",
+            "Flow Bytes/s"
+        ]
+    },
+    {
+        "timestamp": "2026-01-23 23:31:04",
+        "batch": 19,
+        "ks_drift": false,
+        "psi_drift": true,
+        "drift_magnitude": 2.531817912340677,
+        "drift_features_count": 2,
+        "top_drift_features": [
+            "Total Length of Fwd Packets",
+            "Flow Bytes/s"
+        ]
+    },
+    {
+        "timestamp": "2026-01-23 23:31:04",
+        "batch": 20,
+        "ks_drift": false,
+        "psi_drift": true,
+        "drift_magnitude": 2.5470894478665596,
+        "drift_features_count": 2,
+        "top_drift_features": [
+            "Total Length of Fwd Packets",
+            "Flow Bytes/s"
+        ]
+    },
+    {
+        "timestamp": "2026-01-23 23:31:04",
+        "batch": 21,
+        "ks_drift": false,
+        "psi_drift": true,
+        "drift_magnitude": 2.5479132294916944,
+        "drift_features_count": 2,
+        "top_drift_features": [
+            "Total Length of Fwd Packets",
+            "Flow Bytes/s"
+        ]
+    },
+    {
+        "timestamp": "2026-01-23 23:31:04",
+        "batch": 22,
+        "ks_drift": false,
+        "psi_drift": true,
+        "drift_magnitude": 2.580318824494885,
+        "drift_features_count": 2,
+        "top_drift_features": [
+            "Total Length of Fwd Packets",
+            "Flow Bytes/s"
+        ]
+    },
+    {
+        "timestamp": "2026-01-23 23:31:04",
+        "batch": 23,
+        "ks_drift": false,
+        "psi_drift": true,
+        "drift_magnitude": 2.554279884826851,
+        "drift_features_count": 2,
+        "top_drift_features": [
+            "Total Length of Fwd Packets",
+            "Flow Bytes/s"
+        ]
+    },
+    {
+        "timestamp": "2026-01-23 23:31:04",
+        "batch": 24,
+        "ks_drift": false,
+        "psi_drift": true,
+        "drift_magnitude": 2.594646923285237,
+        "drift_features_count": 2,
+        "top_drift_features": [
+            "Total Length of Fwd Packets",
+            "Flow Bytes/s"
+        ]
+    }
+]

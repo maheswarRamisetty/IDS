@@ -1,0 +1,411 @@
+{
+    "timestamp": "20260123_232811",
+    "data_processing": {
+        "training_samples": 1981520,
+        "test_samples": 849223,
+        "features_count": 2,
+        "n_classes": 15,
+        "processing_time": 54.444135427474976
+    },
+    "model_performance": {
+        "accuracy": 0.9438510261733373,
+        "classification_report": "              precision    recall  f1-score   support\n\n           0       0.94      1.00      0.97    681929\n           1       0.75      0.01      0.02       590\n           2       0.99      0.81      0.89     38408\n           3       0.84      0.08      0.14      3088\n           4       0.96      0.60      0.74     69322\n           5       0.67      0.07      0.13      1650\n           6       0.99      0.28      0.43      1739\n           7       0.99      0.48      0.65      2381\n           8       1.00      1.00      1.00         3\n           9       1.00      0.09      0.17        11\n          10       0.98      0.99      0.99     47679\n          11       0.00      0.00      0.00      1769\n          12       0.00      0.00      0.00       452\n          13       0.00      0.00      0.00         6\n          14       0.00      0.00      0.00       196\n\n    accuracy                           0.94    849223\n   macro avg       0.67      0.36      0.41    849223\nweighted avg       0.94      0.94      0.94    849223\n",
+        "confusion_matrix": [
+            [
+                679421,
+                2,
+                204,
+                40,
+                1449,
+                45,
+                2,
+                8,
+                0,
+                0,
+                758,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                584,
+                6,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                7359,
+                0,
+                31041,
+                0,
+                8,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                2778,
+                0,
+                0,
+                238,
+                72,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                27574,
+                0,
+                25,
+                6,
+                41714,
+                3,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                1480,
+                0,
+                0,
+                0,
+                25,
+                115,
+                2,
+                0,
+                0,
+                0,
+                28,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                1244,
+                0,
+                0,
+                0,
+                0,
+                0,
+                480,
+                0,
+                0,
+                0,
+                15,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                1228,
+                0,
+                3,
+                0,
+                0,
+                0,
+                0,
+                1150,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                3,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                10,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                285,
+                0,
+                0,
+                0,
+                14,
+                9,
+                0,
+                0,
+                0,
+                0,
+                47371,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                1766,
+                0,
+                2,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                442,
+                0,
+                0,
+                0,
+                10,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                6,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ],
+            [
+                196,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        ],
+        "auc_roc": 0.9778279729752829
+    },
+    "drift_detection": {
+        "total_batches": 50,
+        "total_ks_drifts": 0,
+        "total_psi_drifts": 10,
+        "total_drifts": 10,
+        "drift_rate": 0.2,
+        "avg_drift_magnitude": 0.5175648866822983,
+        "max_drift_magnitude": 2.594646923285237,
+        "total_alerts": 10,
+        "drift_alerts": [
+            {
+                "timestamp": "2026-01-23 23:31:04",
+                "batch": 15,
+                "ks_drift": false,
+                "psi_drift": true,
+                "drift_magnitude": 2.5431226214631213,
+                "drift_features_count": 2,
+                "top_drift_features": [
+                    "Total Length of Fwd Packets",
+                    "Flow Bytes/s"
+                ]
+            },
+            {
+                "timestamp": "2026-01-23 23:31:04",
+                "batch": 16,
+                "ks_drift": false,
+                "psi_drift": true,
+                "drift_magnitude": 2.580981773427931,
+                "drift_features_count": 2,
+                "top_drift_features": [
+                    "Total Length of Fwd Packets",
+                    "Flow Bytes/s"
+                ]
+            },
+            {
+                "timestamp": "2026-01-23 23:31:04",
+                "batch": 17,
+                "ks_drift": false,
+                "psi_drift": true,
+                "drift_magnitude": 2.594525348622193,
+                "drift_features_count": 2,
+                "top_drift_features": [
+                    "Total Length of Fwd Packets",
+                    "Flow Bytes/s"
+                ]
+            },
+            {
+                "timestamp": "2026-01-23 23:31:04",
+                "batch": 18,
+                "ks_drift": false,
+                "psi_drift": true,
+                "drift_magnitude": 2.554332561759082,
+                "drift_features_count": 2,
+                "top_drift_features": [
+                    "Total Length of Fwd Packets",
+                    "Flow Bytes/s"
+                ]
+            },
+            {
+                "timestamp": "2026-01-23 23:31:04",
+                "batch": 19,
+                "ks_drift": false,
+                "psi_drift": true,
+                "drift_magnitude": 2.531817912340677,
+                "drift_features_count": 2,
+                "top_drift_features": [
+                    "Total Length of Fwd Packets",
+                    "Flow Bytes/s"
+                ]
+            },
+            {
+                "timestamp": "2026-01-23 23:31:04",
+                "batch": 20,
+                "ks_drift": false,
+                "psi_drift": true,
+                "drift_magnitude": 2.5470894478665596,
+                "drift_features_count": 2,
+                "top_drift_features": [
+                    "Total Length of Fwd Packets",
+                    "Flow Bytes/s"
+                ]
+            },
+            {
+                "timestamp": "2026-01-23 23:31:04",
+                "batch": 21,
+                "ks_drift": false,
+                "psi_drift": true,
+                "drift_magnitude": 2.5479132294916944,
+                "drift_features_count": 2,
+                "top_drift_features": [
+                    "Total Length of Fwd Packets",
+                    "Flow Bytes/s"
+                ]
+            },
+            {
+                "timestamp": "2026-01-23 23:31:04",
+                "batch": 22,
+                "ks_drift": false,
+                "psi_drift": true,
+                "drift_magnitude": 2.580318824494885,
+                "drift_features_count": 2,
+                "top_drift_features": [
+                    "Total Length of Fwd Packets",
+                    "Flow Bytes/s"
+                ]
+            },
+            {
+                "timestamp": "2026-01-23 23:31:04",
+                "batch": 23,
+                "ks_drift": false,
+                "psi_drift": true,
+                "drift_magnitude": 2.554279884826851,
+                "drift_features_count": 2,
+                "top_drift_features": [
+                    "Total Length of Fwd Packets",
+                    "Flow Bytes/s"
+                ]
+            },
+            {
+                "timestamp": "2026-01-23 23:31:04",
+                "batch": 24,
+                "ks_drift": false,
+                "psi_drift": true,
+                "drift_magnitude": 2.594646923285237,
+                "drift_features_count": 2,
+                "top_drift_features": [
+                    "Total Length of Fwd Packets",
+                    "Flow Bytes/s"
+                ]
+            }
+        ]
+    },
+    "execution_times": {
+        "total": 180.90283584594727,
+        "preprocessing": 54.444135427474976,
+        "training": 118.35895299911499,
+        "drift_detection": 0.6062664985656738,
+        "visualization": 7.421030759811401
+    }
+}

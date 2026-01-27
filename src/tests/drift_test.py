@@ -5,27 +5,22 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def test_drift_simulation():
-    """Test drift detection with simulated data"""
+    
     print("Testing Drift Detection...")
     print("=" * 50)
     
-    # Generate reference data (normal distribution)
     np.random.seed(42)
     n_samples = 1000
     n_features = 10
     
     reference_data = np.random.normal(0, 1, (n_samples, n_features))
     
-    # Test 1: No drift
     test1_data = np.random.normal(0, 1, (500, n_features))
     
-    # Test 2: Minor drift (mean shift)
     test2_data = np.random.normal(0.2, 1, (500, n_features))
     
-    # Test 3: Major drift (mean and variance shift)
     test3_data = np.random.normal(1.0, 2.0, (500, n_features))
     
-    # Test 4: Extreme drift
     test4_data = np.random.normal(3.0, 3.0, (500, n_features))
     
     def kolmogorov_smirnov_test(ref, test):
@@ -54,7 +49,6 @@ def test_drift_simulation():
             psi_vals.append(psi)
         return np.mean(psi_vals)
     
-    #  metrics
     tests = [test1_data, test2_data, test3_data, test4_data]
     test_names = ["No Drift", "Minor Drift", "Major Drift", "Extreme Drift"]
     

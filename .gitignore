@@ -1,5 +1,5 @@
 data/
-*.csv
+*.csv && !src/dataset_with_summaries.csv
 *.json
 **/.env
 src/check_hf.py
